@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://kit.fontawesome.com/16bf78a0e8.js" crossorigin="anonymous"></script>
+    <script src="js/script.js" defer></script>
   </head>
   <body>
     <div class="nav-container">
@@ -30,24 +31,22 @@
           <li>
             <a href=""><img src="images/icons8-linkedin-circled.svg" alt="linkedIn icon" /></a>
           </li>
-          <li>
-            <a href=""><img src="images/icons8-linkedin-circled.svg" alt="linkedIn icon" /></a>
-          </li>
         </ul>
       </div>
     </div>
     <div class="hero">
       <div class="content">
-        <h1 class="hero-title">Hello my name is Edina Isztojka</h1>
-        <div>
+        <h1 class="hero-title hidden">Hello my name is Edina Isztojka</h1>
+        <div class="hidden">
           <p>If you want to know me srcoll down.</p>
           <a class="btn-cta" href="mailto:edinanorge@gmail.com">Say Hello</a>
         </div>
       </div>
       <svg
         class="hero-design"
+        id="hero-design"
         width="457"
-        height="618"
+        height="418"
         viewBox="0 0 457 618"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +55,8 @@
         <rect x="57" y="318" width="100" height="100" fill="#00735C" />
         <rect x="57" y="418" width="100" height="100" rx="8" fill="#C1D9B7" />
         <rect x="157" y="318" width="100" height="100" rx="8" fill="white" />
-        <rect x="157" y="418" width="100" height="100" rx="50" fill="#E5A298" />
-        <rect x="257" y="318" width="100" height="100" rx="50" fill="#00E091" />
+        <rect x="157" y="418" width="100" height="100" rx="50" fill="#E5A298" id="rosa" />
+        <rect x="257" y="318" width="100" height="100" rx="50" fill="#00E091" id="green" />
         <rect x="256" y="418" width="100" height="100" rx="8" fill="#00735C" />
         <rect x="157" y="518" width="100" height="100" rx="8" fill="white" />
         <rect x="57" y="518" width="100" height="100" rx="8" fill="#00735C" />
@@ -73,34 +72,30 @@
 
     <section class="about" id="about">
       <div class="about-container">
-        <div class="left">
-          <p class="title">About me.</p>
-          <p class="description">
-            I'm a Hungarian mother of two small children, based on Norway. I'm currently learning Front-End development
-            at Noroff and I'm passionate about web design and development. My future plan is become a full stack
-            developer.
-          </p>
-        </div>
-
-        <img src="images/profil.jpg" alt="Profil picture" class="right" />
+        <p class="title hidden">About me.</p>
+        <p class="description hidden">
+          I'm a Hungarian mother of two small children, based on Norway. I'm currently learning Front-End development at
+          Noroff and I'm passionate about web design and development. My future plan is to become a full stack
+          developer.
+        </p>
       </div>
     </section>
 
     <section class="educations" id="educations">
       <div class="educations-container">
         <p class="title">Educations</p>
-        <ul>
-          <li class="education">
+        <ul class="education-list">
+          <li class="education hidden">
             <div class="icon-container one"><img src="images/noroff.png" /></div>
             <p class="title">Front end development</p>
             <p class="description">2022 januar-2024 januar</p>
           </li>
 
-          <li class="education">
+          <li class="education hidden">
             <div class="icon-container two"><img src="images/udemy1.jpg" /></div>
           </li>
 
-          <li class="education">
+          <li class="education hidden">
             <div class="icon-container tree"><img src="images/udemy2.jpg" /></div>
           </li>
         </ul>
@@ -108,7 +103,7 @@
     </section>
 
     <section class="projects" id="projects">
-      <div class="projects-container">
+      <div class="projects-container hidden">
         <div class="left">
           <p class="subheading">Online store</p>
           <p class="title">RainyDays</p>
@@ -116,14 +111,16 @@
             RainyDays is an online shop selling men's and women’s rain jackets. They are designed for a range of
             different outdoor activities that enrich people's lives.
           </p>
-          <a href="#" class="btn-secondary"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="btn-secondary"><i class="fa-solid fa-globe"></i></a>
+          <div class="btn-container">
+            <a href="#" class="btn-secondary"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="btn-secondary"><i class="fa-solid fa-globe"></i></a>
+          </div>
         </div>
         <a href="https://happy-cray-ed1521.netlify.app" class="right"
           ><img src="images/rainydays.png" alt="rainydays website home page."
         /></a>
       </div>
-      <div class="projects-container">
+      <div class="projects-container hidden">
         <div class="left">
           <p class="subheading">Blog of parenting.</p>
           <p class="title">MommyMoods</p>
@@ -132,14 +129,17 @@
             is easier and more fun! The site is filled whit post about the best gift ideas, travel tips, and kid's
             activities.
           </p>
-          <a href="#" class="btn-secondary"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="btn-secondary"><i class="fa-solid fa-globe"></i></a>
+          <div class="btn-container">
+            <a href="#" class="btn-secondary"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="btn-secondary"><i class="fa-solid fa-globe"></i></a>
+          </div>
         </div>
+
         <a href="https://spectacular-marigold-3f357f.netlify.app" class="right"
           ><img src="images/blog.png" alt="rainydays website home page."
         /></a>
       </div>
-      <div class="projects-container">
+      <div class="projects-container hidden">
         <div class="left">
           <p class="subheading">Sciens museum website</p>
           <p class="title">Community Sciens Museum</p>
@@ -147,8 +147,10 @@
             An interactive science museum called the Community Science Museum website. The site target audience is
             primary and middle school children (7-15) and families with young children.
           </p>
-          <a href="#" class="btn-secondary"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="btn-secondary"><i class="fa-solid fa-globe"></i></a>
+          <div class="btn-container">
+            <a href="#" class="btn-secondary"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="btn-secondary"><i class="fa-solid fa-globe"></i></a>
+          </div>
         </div>
         <a href="https://coruscating-mandazi-857746.netlify.app" class="right"
           ><img src="images/museum.png" alt="rainydays website home page."
@@ -156,7 +158,7 @@
       </div>
     </section>
 
-    <section class="cta" id="cta">
+    <section class="contact" id="contact">
       <p class="subheading">If you like what you see:</p>
       <a class="btn-cta" href="mailto:edinanorge@gmail.com">Get in touch.</a>
     </section>
@@ -170,32 +172,6 @@
           <li><a href="#projects">My works</a></li>
         </ul>
       </div>
-
-      <svg
-        class="hero-design"
-        width="457"
-        height="618"
-        viewBox="0 0 457 618"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="57" y="218" width="100" height="100" fill="#00735C" />
-        <rect x="57" y="318" width="100" height="100" fill="#00735C" />
-        <rect x="57" y="418" width="100" height="100" rx="8" fill="#C1D9B7" />
-        <rect x="157" y="318" width="100" height="100" rx="8" fill="white" />
-        <rect x="157" y="418" width="100" height="100" rx="50" fill="#E5A298" />
-        <rect x="257" y="318" width="100" height="100" rx="50" fill="#00E091" />
-        <rect x="256" y="418" width="100" height="100" rx="8" fill="#00735C" />
-        <rect x="157" y="518" width="100" height="100" rx="8" fill="white" />
-        <rect x="57" y="518" width="100" height="100" rx="8" fill="#00735C" />
-        <rect x="157" y="218" width="100" height="100" rx="8" fill="#00735C" />
-        <rect x="357" y="318" width="100" height="100" rx="8" fill="#C1D9B7" />
-        <rect x="356" y="418" width="100" height="100" fill="white" />
-        <rect x="256" y="518" width="100" height="100" fill="white" />
-        <rect x="356" y="518" width="100" height="100" fill="white" />
-        <rect x="357" y="218" width="100" height="100" fill="white" />
-        <rect x="257" y="218" width="100" height="100" rx="8" fill="#00735C" />
-      </svg>
     </footer>
   </body>
 </html>

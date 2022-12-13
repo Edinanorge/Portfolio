@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   height: 100vh;
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-
-  scroll-behavior: smooth;
 }
 
 ul {
@@ -35,7 +36,7 @@ header,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 0 2rem;
   .logo {
     color: #00e091;
     font-weight: 700;
@@ -72,7 +73,12 @@ header,
   font-weight: 600;
   display: inline-block;
   width: fit-content;
-  margin-top: 4rem;
+  margin-top: 2rem;
+  transition: all 1s;
+
+  &:hover {
+    background-color: #00e091;
+  }
 }
 
 section {
@@ -105,19 +111,16 @@ section {
 
 .about {
   position: relative;
-
-  img {
-    border-radius: 1rem;
-    height: 500px;
-    object-fit: cover;
-  }
+  max-width: 70%;
+  height: fit-content;
+  margin: 0 auto;
 }
 
 .about::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -137,7 +140,7 @@ section {
 .education {
   background-color: #fff;
   padding: 2rem;
-  border: 0.5px solid #e5a298;
+  box-shadow: 0 1rem 2rem 0 #e5a298ab;
 
   border-radius: 1rem;
   margin-bottom: 1rem;
@@ -162,11 +165,6 @@ section {
 
 .projects {
   background-color: #f7f7f7;
-
-  .btn-secondary i {
-    color: #e5a298;
-    font-size: 1.4rem;
-  }
 }
 
 .projects-container {
@@ -180,17 +178,30 @@ section {
     border-radius: 1rem;
     margin-top: 1rem;
   }
+
+  .btn-container {
+    display: inline;
+    i {
+      color: #e5a298;
+      font-size: 1.4rem;
+      padding-right: 1rem;
+
+      &:hover {
+        color: #00e091;
+      }
+    }
+  }
 }
 
-.cta {
+.contact {
   position: relative;
 }
 
-.cta::after {
+.contact::after {
   content: "";
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -202,15 +213,95 @@ section {
 footer {
   .hero-design {
     display: none;
+    transition: all 1s;
   }
 }
 
+.hidden {
+  opacity: 0;
+
+  transform: translateX(-100%);
+  transition: all 1.5s;
+}
+
+.show {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.education:nth-child(1) {
+  transition-delay: 200ms;
+}
+.education:nth-child(2) {
+  transition-delay: 400ms;
+}
+.education:nth-child(3) {
+  transition-delay: 600ms;
+}
+
+#rosa {
+  animation: rosa-dott 2s ease-in-out;
+}
+#green {
+  animation: green-dott 2s ease-in-out;
+}
+#hero-design {
+  animation: slide 1s ease-in-out;
+}
+
+@keyframes rosa-dott {
+  20% {
+    transform: translateX(-500%);
+  }
+  70% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(-3%);
+  }
+}
+
+@keyframes green-dott {
+  20% {
+    transform: translateX(500%);
+  }
+  70% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(3%);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: scale(0);
+    filter: blur(5px);
+  }
+  to {
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motoon) {
+  .hidden {
+    transition: none;
+  }
+}
 @media only screen and(min-width:850px) {
+  header {
+    padding: 0 4rem;
+  }
   .about,
   .projects {
     text-align: left;
   }
-  .about-container,
+  .about-container {
+    max-width: 55%;
+    margin: 0 auto;
+  }
   .projects-container {
     display: grid;
     grid-template-columns: 40% auto;
@@ -227,14 +318,13 @@ footer {
   }
 
   .educations {
-    margin-top: -8rem;
     margin-bottom: -10rem;
-    padding-top: 6rem;
+    padding-top: 10rem;
   }
   .educations-container ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 3rem;
   }
 
   .projects-container {
@@ -247,8 +337,33 @@ footer {
       object-fit: cover;
     }
   }
+  .projects-container:nth-child(2) {
+    grid-template-columns: auto 40%;
+    place-items: start;
+    img {
+      margin-left: 0;
+      float: left;
+    }
+  }
+
+  .projects-container:nth-child(2) .right {
+    margin-right: 2rem;
+    margin-left: 0;
+    grid-column: 1;
+    grid-row: 1;
+    a {
+      margin-left: 0;
+    }
+  }
+  .projects-container:nth-child(2) .left {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }
 @media only screen and(min-width:1050px) {
+  header {
+    padding-left: 6rem;
+  }
   .hero {
     height: 90vh;
   }
@@ -261,16 +376,13 @@ footer {
     }
   }
 
-  header {
-    padding: 2rem 2rem 2rem 4rem;
-  }
   .social-media {
-    padding: 2rem 4rem 2rem 2rem;
+    padding-right: 6rem;
     display: block;
     ul {
       display: flex;
       justify-content: space-between;
-      width: 7rem;
+      width: 4rem;
       float: right;
     }
   }
@@ -308,10 +420,10 @@ footer {
 }
 @media only screen and(min-width:1250px) {
   header {
-    padding: 2rem 2rem 2rem 10rem;
+    padding-left: 10rem;
   }
   .social-media {
-    padding: 2rem 10rem 2rem 2rem;
+    padding-right: 10rem;
   }
   section {
     padding: 10rem 10rem 4rem 10rem;
@@ -322,10 +434,10 @@ footer {
 }
 @media only screen and(min-width:1550px) {
   header {
-    padding: 2rem 2rem 2rem 20rem;
+    padding-left: 20rem;
   }
   .social-media {
-    padding: 2rem 20rem 2rem 2rem;
+    padding-right: 20rem;
   }
   section {
     padding: 10rem 20rem 4rem 20rem;
